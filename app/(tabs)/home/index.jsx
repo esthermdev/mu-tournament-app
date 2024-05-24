@@ -2,8 +2,8 @@ import { ActivityIndicator, Image, View, StyleSheet, ImageBackground } from 'rea
 import { useState } from 'react';
 import { router } from 'expo-router';
 import { images } from '../../../constants';
-import Header from '../../components/Header';
-import HomeButtons from '../../components/HomeButtons';
+import Header from '../../../components/Header';
+import HomeButtons from '../../../components/HomeButtons';
 
 const Home = () => {
 	const [isBackgroundLoaded, setBackgroundLoaded] = useState(false);

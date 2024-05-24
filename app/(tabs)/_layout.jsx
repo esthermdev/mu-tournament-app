@@ -64,6 +64,21 @@ const TabsLayout = () => {
 				}}
 			/>
 			<Tabs.Screen 
+				name='rankings'
+				options={{
+					title: 'Rankings',
+					tabBarIcon: ({ color, focused }) => (
+						<Ionicons
+							raised
+							name='medal'
+							size={25}
+							color={color}
+							focused={focused}
+						/>
+					),
+				}}
+			/>
+			<Tabs.Screen 
 				name='info'
 				options={{
 					title: 'Info',

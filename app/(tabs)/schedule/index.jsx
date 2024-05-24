@@ -1,16 +1,26 @@
-import { View, Text, Animated, TouchableWithoutFeedback, StyleSheet, ScrollView } from 'react-native';
-import { Icon, ListItem } from '@rneui/base';
-import React, { useState } from 'react'
-import Header from '../../components/Header';
-import { SCHEDULE } from '../../shared/schedule';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { ListItem } from '@rneui/base';
 import { ListItemChevron } from '@rneui/base/dist/ListItem/ListItem.Chevron';
-import { router } from 'expo-router';
+import Header from '../../../components/Header';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchSchedule } from '../../../features/schedule/scheduleSlice';
+
 
 const Schedule = () => {
+
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(fetchSchedule());
+	}, [dispatch])
+
+	const schedule = useSelector((state) => state.schedule);
+	const dayOneSchedule = schedule.scheduleArray.filter((events) => events.gameday === 1);
+	const dayTwoSchedule = schedule.scheduleArray.filter((events) => events.gameday === 2);
+
 	const [expanded, setExpanded] = useState(false);
 	const [expandedTwo, setExpandedTwo] = useState(false);
-	const [dayOneSchedule, setdayOneSchedule] = useState(SCHEDULE.filter((schedule) => schedule.gameday === 1));
-	const [dayTwoSchedule, setdayTwoSchedule] = useState(SCHEDULE.filter((schedule) => schedule.gameday === 2));
 
 	return (
 		<View style={{flex: 1}}>

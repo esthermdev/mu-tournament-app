@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+import { Provider } from 'react-redux';
+import { store } from '../redux/store';
 import { SplashScreen, Stack } from 'expo-router';
 import { useFonts } from 'expo-font';
 
@@ -31,10 +33,13 @@ const RootLayout = () => {
 	};
 
 	return (
-		<Stack>
-			<Stack.Screen name='index' options={{ headerShown: false, headerBackVisible: false }} />
-			<Stack.Screen name='(tabs)' options={{ headerShown: false, headerBackVisible: false }} />
-		</Stack>
+		<Provider store={store}>
+			<Stack>
+				<Stack.Screen name='index' options={{ headerShown: false, headerBackVisible: false }} />
+				<Stack.Screen name='(tabs)' options={{ headerShown: false, headerBackVisible: false }} />
+			</Stack>
+		</Provider>
+		
 	);
 }
 
