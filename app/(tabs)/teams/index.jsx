@@ -1,6 +1,7 @@
 import { View, Text } from 'react-native'
 import React from 'react';
 import Header from '../../../components/Header';
+import TeamsDirectoryScreen from '../../../screens/TeamsDirectoryScreen';
 
 const Teams	= () => {
 	
@@ -10,7 +11,7 @@ const Teams	= () => {
 				title='Teams'
 				backButtonStyle='hidden' 
 			/>
-			<Text>Teams</Text>
+			<TeamsDirectoryScreen />
 		</View>
 	);
 };

@@ -4,8 +4,19 @@ import { Image, Text, View, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { images } from '../constants';
 import CustomButton from '../components/CustomButton'
+import { useDispatch } from 'react-redux';
+import { fetchSchedule } from '../features/schedule/scheduleSlice';
+import { fetchTeams } from '../features/teams/teamsSlice';
+import { useEffect } from 'react';
 
 export default function App() {
+
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(fetchSchedule());
+		dispatch(fetchTeams());
+	}, [dispatch]);
 
 	return (
 		<SafeAreaView className='bg-black h-full'>

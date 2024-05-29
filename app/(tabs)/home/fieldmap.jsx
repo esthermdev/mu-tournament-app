@@ -7,27 +7,27 @@ import { router } from 'expo-router';
 const FieldMap = () => {
     return (
         <>
-        <Header 
-            title='Field Map'
-            handlePress={() => router.back()}
-            backTitle='Home'
-        />
-        <ScrollView 
-            contentContainerStyle={styles.container}
-            maximumZoomScale={2}
-            minimumZoomScale={1}
-        >
-            <Image 
-                source={images.fieldMap}
-                className='w-full rotate-90 h-full'
-                resizeMode='contain'
-                style={styles.image}
+            <Header 
+                title='Field Map'
+                handlePress={() => router.back()}
+                backTitle='Home'
             />
-        </ScrollView>
+            <ScrollView 
+                contentContainerStyle={styles.container}
+                maximumZoomScale={2}
+                minimumZoomScale={1}
+            >
+                <Image 
+                    source={images.fieldMap}
+                    className='w-full rotate-90 h-full'
+                    resizeMode='contain'
+                    style={styles.image}
+                />
+            </ScrollView>
         </>
         
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     container: {
