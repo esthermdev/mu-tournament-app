@@ -1,10 +1,8 @@
 import { useEffect } from 'react';
-import { Provider, useDispatch } from 'react-redux';
+import { Provider } from 'react-redux';
 import { store } from '../redux/store';
 import { SplashScreen, Stack } from 'expo-router';
 import { useFonts } from 'expo-font';
-import { fetchSchedule } from '../features/schedule/scheduleSlice';
-import { fetchTeams } from '../features/teams/teamsSlice';
 
 SplashScreen.preventAutoHideAsync();
 

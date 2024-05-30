@@ -52,3 +52,9 @@ export const teamsReducer = teamsSlice.reducer;
 export const selectAllTeams = (state) => {
     return state.teams.teamsArray;
 }
+
+export const selectTeamById = (id) => (state) => {
+    return state.teams.teamsArray.find(
+        (team) => team.id === parseInt(id)
+    );
+};

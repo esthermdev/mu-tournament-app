@@ -1,16 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchSchedule } from '../features/schedule/scheduleSlice';
+import { useSelector } from 'react-redux';
 import { ListItem } from '@rneui/base';
 
 const ScheduleScreen = () => {
-
-	// const dispatch = useDispatch();
-
-	// useEffect(() => {
-	// 	dispatch(fetchSchedule());
-	// }, [dispatch]);
 
 	const schedule = useSelector((state) => state.schedule);
 	const dayOneSchedule = schedule.scheduleArray.filter((events) => events.gameday === 1);

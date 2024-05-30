@@ -1,52 +1,73 @@
 import React from 'react';
-import { FlatList, View, StyleSheet, Text } from 'react-native';
+import { FlatList, View, StyleSheet, Text, Pressable } from 'react-native';
 import { Icon } from '@rneui/themed';
 import { useSelector } from 'react-redux';
+import Loading from '../components/Loading';
+import { router } from 'expo-router';
 
 
 const TeamsDirectoryScreen = () => {
 
-	const teams = useSelector((state) => state.teams) 
+	const teams = useSelector((state) => state.teams);
+	
+	if (teams.isLoading) {
+		return <Loading />
+	};
+
+	if (teams.errMsg) {
+		return (
+			<View>
+				<Text>{teams.errMsg}</Text>
+			</View>
+		);
+	};
 
     const renderDirectoryItem = ({ item: team }) => {
+		const id = team.id;
+
         return (
-            <View style={styles.items}>
-				<Icon
-					reverse
-					name='american-football-outline'
-					type='ionicon'
-					color='#517fa4'
-				/>
-                <Text>{team.name}</Text>
-            </View>
+			<Pressable onPress={() => router.push({
+				pathname: "/teams/[teams-id]",
+				params: { id: id }
+			})}>
+				<View style={styles.items}>
+					<Icon
+							reverse
+							name='american-football-outline'
+							type='ionicon'
+							color='#517fa4'
+					/>
+					<Text>{team.name}</Text>
+            	</View>
+			</Pressable>
         );
     };
 
     return (
-        <FlatList 
-            data={teams.teamsArray}
-            renderItem={renderDirectoryItem}
-            keyExtractor={(item) => item.id.toString()}
-			contentContainerStyle={styles.container}
-        />
+		<>
+			<FlatList 
+				data={teams.teamsArray}
+				renderItem={renderDirectoryItem}
+				keyExtractor={(item) => item.id.toString()}
+				horizontal={false}
+				numColumns={4}
+				contentContainerStyle={styles.container}
+			/>
+		</>
     );
 };
 
 const styles = StyleSheet.create({
 	container: {
-		display: 'flex',
-		flexDirection: 'row',
-		flexWrap: 'wrap',
 		marginTop: 15,
-		alignItems: 'center',
-		justifyContent: 'center'
+		alignItems: 'center'
 	},	
 	items: {
 		alignItems: 'center',
 		justifyContent: 'center',
-		margin: 1,
-		width: 120,
-		height: 150
+		margin: 5,
+		width: 90,
+		height: 90
 	}
 })
 

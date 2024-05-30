@@ -18,12 +18,12 @@ const HomeScreen = () => {
                 <HomeButtons
                     title='Field Map'
                     handlePress={() => router.push('/home/fieldmap')}
-                    containerStyles='w-[180] h-40 border-0.5 shadow-sm shadow-black'
+                    containerStyles='w-[170] h-40 border-0.5 shadow-sm shadow-black'
                 />
                 <HomeButtons
                     title='Watch Live'
                     handlePress={() => router.push('https://www.youtube.com/channel/UCUY1pzGlosJcOY_7prcQRtA/videos')}
-                    containerStyles='w-[180] h-40 border-0.5 shadow-sm shadow-black'
+                    containerStyles='w-[170] h-40 border-0.5 shadow-sm shadow-black'
                 />
             </View>					
         </>
