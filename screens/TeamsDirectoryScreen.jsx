@@ -23,12 +23,11 @@ const TeamsDirectoryScreen = () => {
 	};
 
     const renderDirectoryItem = ({ item: team }) => {
-		const id = team.id;
 
         return (
 			<Pressable onPress={() => router.push({
 				pathname: "/teams/[teams-id]",
-				params: { id: id }
+				params: { id: team.id }
 			})}>
 				<View style={styles.items}>
 					<Icon
@@ -48,7 +47,7 @@ const TeamsDirectoryScreen = () => {
 			<FlatList 
 				data={teams.teamsArray}
 				renderItem={renderDirectoryItem}
-				keyExtractor={(item) => item.id.toString()}
+				keyExtractor={(item) => item.id}
 				horizontal={false}
 				numColumns={4}
 				contentContainerStyle={styles.container}
@@ -65,7 +64,8 @@ const styles = StyleSheet.create({
 	items: {
 		alignItems: 'center',
 		justifyContent: 'center',
-		margin: 5,
+		marginTop: 5,
+		marginHorizontal: 1,
 		width: 90,
 		height: 90
 	}

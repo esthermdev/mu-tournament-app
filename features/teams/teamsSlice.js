@@ -1,21 +1,17 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { baseUrl } from '../../shared/baseUrl';
+import { db } from '../../firebaseConfig';
+import { collection, getDocs } from 'firebase/firestore';
 
 export const fetchTeams = createAsyncThunk(
     'teams/fetchTeams',
     async (_, { rejectWithValue }) => {
         try {
-            const response = await fetch(baseUrl + 'teams');
-            if (!response.ok) {
-                console.error('Server responded with:', response.status);
-                return rejectWithValue('Unable to fetch, status: ' + response.status);
-            }
-            const data = await response.json();
-            console.log('Fetched data:', data);
+            const querySnapshot = await getDocs(collection(db, 'teams'));
+            const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
             return data;
         } catch (error) {
-            console.error('Network request failed:', error);
-            return rejectWithValue('Network request failed: ' + error.message);
+            console.error('Error fetching teams:', error);
+            return rejectWithValue('Error fetching teams: ' + error.message);
         }
     }
 );
@@ -48,13 +44,5 @@ const teamsSlice = createSlice({
 });
 
 export const teamsReducer = teamsSlice.reducer;
-
-export const selectAllTeams = (state) => {
-    return state.teams.teamsArray;
-}
-
-export const selectTeamById = (id) => (state) => {
-    return state.teams.teamsArray.find(
-        (team) => team.id === parseInt(id)
-    );
-};
+export const selectAllTeams = (state) => state.teams.teamsArray;
+export const selectTeamById = (id) => (state) => state.teams.teamsArray.find(team => team.id === id);

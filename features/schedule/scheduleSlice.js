@@ -1,21 +1,17 @@
-import { createSlice, createAsyncThunk, createSelector } from '@reduxjs/toolkit';
-import { baseUrl } from '../../shared/baseUrl';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { db } from '../../firebaseConfig';
+import { collection, getDocs } from 'firebase/firestore';
 
 export const fetchSchedule = createAsyncThunk(
     'schedule/fetchSchedule',
     async (_, { rejectWithValue }) => {
         try {
-            const response = await fetch(baseUrl + 'schedule');
-            if (!response.ok) {
-                console.error('Server responded with:', response.status);
-                return rejectWithValue('Unable to fetch, status: ' + response.status);
-            }
-            const data = await response.json();
-            console.log('Fetched data:', data);
-            return data;
+            const querySnapshot = await getDocs(collection(db, 'schedule'));
+            const data = querySnapshot.docs.map(doc => doc.data());
+            return data
         } catch (error) {
-            console.error('Network request failed:', error);
-            return rejectWithValue('Network request failed: ' + error.message);
+            console.error('Error fetching schedule:', error);
+            return rejectWithValue('Error fetching schedule: ' + error.message);
         }
     }
 );
@@ -48,7 +44,4 @@ const scheduleSlice = createSlice({
 });
 
 export const scheduleReducer = scheduleSlice.reducer;
-
-export const selectFullSchedule = (state) => {
-    return state.schedule.scheduleArray;
-}
+export const selectFullSchedule = (state) => state.schedule.scheduleArray;

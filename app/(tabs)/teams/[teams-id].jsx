@@ -7,7 +7,7 @@ import { selectTeamById } from '../../../features/teams/teamsSlice';
 import Header from '../../../components/Header';
 
 const RenderTeam = () => {
-    const {id} = useLocalSearchParams();
+    const { id } = useLocalSearchParams();
     const team = useSelector(selectTeamById(id));
 
     return (
@@ -19,6 +19,7 @@ const RenderTeam = () => {
             <Card>
                 <Card.Title>{team.name}</Card.Title>
                 <Card.Divider/>
+                <Text>Team Id: {team.id}</Text>
                 <Text>Ranking: {team.rank}</Text>
                 <Text>Location: {team.location}</Text>
             </Card>
