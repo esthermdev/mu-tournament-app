@@ -1,22 +1,25 @@
 import React from 'react'
 import { Stack } from 'expo-router';
 
-const HomeLayout = () => {
+export default function HomeLayout() {
 	return (
-		<>
-			<Stack>
-				<Stack.Screen 
-					name='index'
-					options={{ headerShown: false, headerTitle: 'Home' }}
-				/>
-				<Stack.Screen 
-					name='fieldmap'
-					options={{ headerShown: false }}
-				/>
-			</Stack>
-		</>
-		
-	)
+		<Stack>
+			<Stack.Screen 
+				name='index'
+				options={{ headerShown: false, headerTitle: 'Home' }}
+			/>
+			<Stack.Screen 
+				name='fieldmap'
+				options={{ headerShown: false }}
+			/>
+			<Stack.Screen 
+				name='games'
+				options={{ headerShown: false }}
+			/>
+			<Stack.Screen 
+				name='scores'
+				options={{ headerShown: false }}
+			/>
+		</Stack>
+	);
 }
-
-export default HomeLayout;

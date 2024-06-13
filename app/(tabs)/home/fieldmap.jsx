@@ -1,5 +1,4 @@
 import { Image, ScrollView, StyleSheet, Text } from 'react-native'
-import React from 'react'
 import { images } from '../../../constants';
 import Header from '../../../components/Header';
 import { router } from 'expo-router';
