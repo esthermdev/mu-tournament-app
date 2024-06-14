@@ -5,9 +5,8 @@ import ScheduleScreen from '../../../screens/ScheduleScreen';
 
 
 const Schedule = () => {
-
 	return (
-		<View style={{flex: 1}}>
+		<View className='bg-white h-full' style={{flex: 1}}>
 			<Header 
 				title='Schedule'
 				backButtonStyle='hidden' 

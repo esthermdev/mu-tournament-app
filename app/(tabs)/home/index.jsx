@@ -5,10 +5,10 @@ import HomeScreen from '../../../screens/HomeScreen';
 const Home = () => {
 
 	return (
-		<View className='bg-gray-300 h-full'>
+		<View className='bg-white h-full'>
 			<Header 
 				title='Home'
-				backButtonStyle='hidden'
+				backButtonHidden='hidden'
 			/>
 			<HomeScreen />
 		</View>

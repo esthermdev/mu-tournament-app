@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { StyleSheet } from 'react-native';
 import { Stack } from 'expo-router';
 
 export default function HomeLayout() {
@@ -20,6 +21,10 @@ export default function HomeLayout() {
 				name='scores'
 				options={{ headerShown: false }}
 			/>
+			<Stack.Screen 
+				name='login'
+				options={{ headerShown: false }}
+			/>
 		</Stack>
 	);
-}
+};

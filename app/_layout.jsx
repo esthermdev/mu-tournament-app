@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { store } from '../redux/store';
-import { NavigationContainer } from '@react-navigation/native';
 import { SplashScreen, Stack } from 'expo-router';
 import { useFonts } from 'expo-font';
+import { AuthProvider } from '../context/AuthContext';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -25,7 +25,7 @@ const RootLayout = () => {
 		if (error) throw error;
 	
 		if (fontsLoaded) {
-		SplashScreen.hideAsync();
+			SplashScreen.hideAsync();
 		}
 	}, [fontsLoaded, error]);
   
@@ -33,14 +33,21 @@ const RootLayout = () => {
 		return null;
 	};
 
-	return (
-		<Provider store={store}>
+	const StackLayout = () => {
+		return (
 			<Stack>
 				<Stack.Screen name='index' options={{ headerShown: false, headerBackVisible: false }} />
 				<Stack.Screen name='(tabs)' options={{ headerShown: false, headerBackVisible: false }} />
 			</Stack>
+		);
+	};
+
+	return (
+		<Provider store={store}>
+			<AuthProvider>
+				<StackLayout />
+			</AuthProvider>
 		</Provider>
-		
 	);
 }
 

@@ -1,7 +1,7 @@
-import { Image, View, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { router } from 'expo-router';
-import { images } from '../constants';
 import HomeButtons from '../components/HomeButtons';
+import CustomButton from '../components/CustomButton';
 
 const HomeScreen = () => {
 
@@ -11,51 +11,39 @@ const HomeScreen = () => {
                 <HomeButtons
                     title='Games'
                     handlePress={() => router.push('/home/games')}
-                    containerStyles='w-[170] h-40 border-0.5 shadow-sm shadow-black'
                 />
                 <HomeButtons
                     title='Scores'
                     handlePress={() => router.push('/home/scores')}
-                    containerStyles='w-[170] h-40 border-0.5 shadow-sm shadow-black'
                 />
                 <HomeButtons
                     title='Field Map'
                     handlePress={() => router.push('/home/fieldmap')}
-                    containerStyles='w-[170] h-40 border-0.5 shadow-sm shadow-black'
                 />
                 <HomeButtons
                     title='Watch Live'
                     handlePress={() => router.push('https://www.youtube.com/channel/UCUY1pzGlosJcOY_7prcQRtA/videos')}
-                    containerStyles='w-[170] h-40 border-0.5 shadow-sm shadow-black'
                 />
+                <CustomButton 
+                    title='Login'
+                    containerStyles='w-4/5 mt-24'
+                    handlePress={() => router.push('home/login')}
+                />
+                <Text className='font-interregular' >Login to use more features</Text>
             </View>					
         </>
 	)
 }
 
-const styles = StyleSheet.create({
-	// imageContainer: {
-	// 	backgroundColor: '#241F20',
-	// 	padding: 35,
-	// 	borderRadius: 8,
-	// 	alignItems: 'center',
-	// 	marginHorizontal: 20,
-    //     marginVertical: 15,
-	// 	borderRadius: 4,
-	// 	borderWidth: 1,
-	// 	borderColor: '#fff'
-	// },	
+const styles = StyleSheet.create({	
 	container: {
         display: 'flex',
         flexWrap: 'wrap',
 		flexDirection: 'row',
         marginTop: 25,
         justifyContent: 'center',
-		gap: 8
-	},	
-	// image: {
-	// 	alignItems: 'center'
-	// },
+		gap: 20
+	},
 })
 
 

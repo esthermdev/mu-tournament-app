@@ -80,13 +80,15 @@ const ScheduleScreen = () => {
 
 const styles = StyleSheet.create({
 	accordianContainer: {
-		margin: 5,
-		borderBottomWidth: 1,
-		borderBottomColor: 'gray'
+		marginTop: 10,
+        marginHorizontal: 15,
+        height: 80, 
+        backgroundColor: 'rgb(254 242 242)',
+        borderRadius: 20
 	},	
 	container: {
 		marginHorizontal: 5,
-		marginBottom: 3
+		marginBottom: 3,
 	},	
 	time: {
 		flex: 1,

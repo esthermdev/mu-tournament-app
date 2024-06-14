@@ -5,14 +5,14 @@ const TeamsLayout = () => {
 	return (
 		<>
 			<Stack>
-					<Stack.Screen 
-						name='index'
-						options={{ headerShown: false, headerTitle: 'Teams' }}
-					/>
-					<Stack.Screen 
-						name='[teams-id]'
-						options={{ headerShown: false }}
-					/>
+				<Stack.Screen 
+					name='index'
+					options={{ headerShown: false, headerTitle: 'Teams' }}
+				/>
+				<Stack.Screen 
+					name='[teams-id]'
+					options={{ headerShown: false }}
+				/>
 			</Stack>
 		</>
 	);

@@ -5,7 +5,7 @@ import Header from '../../../components/Header';
 const Info = () => {
 	
 	return (
-		<View>
+		<View className='bg-white h-full'>
 			<Header 
 				title='Information'
 				backButtonStyle='hidden'

@@ -6,7 +6,7 @@ import TeamsDirectoryScreen from '../../../screens/TeamsDirectoryScreen';
 const Teams	= () => {
 	
 	return (
-		<View>
+		<View className='bg-white h-full'>
 			<Header 
 				title='Teams'
 				backButtonStyle='hidden' 
