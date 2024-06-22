@@ -12,10 +12,6 @@ const RenderTeam = () => {
 
     return (
         <View>
-            <Header 
-                title={team.name}
-                handlePress={() => router.back()}
-            />
             <Card>
                 <Card.Title>{team.name}</Card.Title>
                 <Card.Divider/>

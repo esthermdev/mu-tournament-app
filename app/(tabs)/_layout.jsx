@@ -1,11 +1,12 @@
 import { Tabs } from 'expo-router';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import Header from '../../components/Header';
 
 const TabsLayout = () => {
   	return (
 		<Tabs
 			screenOptions={{
-				headerShown: false,
+				header: () => (<Header />),
 				tabBarShowLabel: true,
 				tabBarLabelStyle: {
 					fontFamily: 'Inter-SemiBold',
@@ -57,36 +58,6 @@ const TabsLayout = () => {
 							raised
 							name='people-sharp'
 							size={25}
-							color={color}
-							focused={focused}
-						/>
-					),
-				}}
-			/>
-			<Tabs.Screen 
-				name='rankings'
-				options={{
-					title: 'Rankings',
-					tabBarIcon: ({ color, focused }) => (
-						<Ionicons
-							raised
-							name='medal'
-							size={25}
-							color={color}
-							focused={focused}
-						/>
-					),
-				}}
-			/>
-			<Tabs.Screen 
-				name='info'
-				options={{
-					title: 'Info',
-					tabBarIcon: ({ color, focused }) => (
-						<Ionicons
-							raised
-							name='information-circle-sharp'
-							size={27}
 							color={color}
 							focused={focused}
 						/>

@@ -1,15 +1,16 @@
-import { TouchableOpacity, Text } from 'react-native'
-import React from 'react'
+import { TouchableOpacity, Text } from 'react-native';
+import { Icon } from '@rneui/base';
+import React from 'react';
 
-const HomeButtons = ({ title, handlePress, isLoading }) => {
+const HomeButtons = ({ handlePress, buttonColor, iconType, iconName, title }) => {
   return (
     <TouchableOpacity 
         onPress={handlePress}
         activeOpacity={0.6}
-        className={`bg-white rounded-3xl justify-center items-center shadow-xl shadow-neutral-300 w-[155] h-[155] ${isLoading ? 'opacity-50' : ''}`}
-        disabled={isLoading}
+        className={`${buttonColor} w-[157px] h-[145px] p-5 rounded-[22px] flex-col justify-between items-start inline-flex`}
     >
-      <Text className='text-black font-interbold text-xl'>{title}</Text>
+      <Icon type={iconType} name={iconName} color='white' />
+      <Text className='font-outfitbold text-white text-lg'>{title}</Text>
     </TouchableOpacity>
   )
 }

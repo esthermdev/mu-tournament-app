@@ -9,27 +9,40 @@ const HomeScreen = () => {
         <>
             <View style={styles.container}>
                 <HomeButtons
-                    title='Games'
+                    title='My Games'
                     handlePress={() => router.push('/home/games')}
+                    buttonColor='bg-orange-500'
+                    iconType='ionicon'
+                    iconName='heart'
                 />
                 <HomeButtons
-                    title='Scores'
+                    title='Report Scores'
                     handlePress={() => router.push('/home/scores')}
+                    buttonColor='bg-lime-500'
+                    iconType='ionicon'
+                    iconName='heart'
                 />
                 <HomeButtons
                     title='Field Map'
                     handlePress={() => router.push('/home/fieldmap')}
+                    buttonColor='bg-lime-500'
+                    iconType='ionicon'
+                    iconName='heart'
                 />
                 <HomeButtons
                     title='Watch Live'
                     handlePress={() => router.push('https://www.youtube.com/channel/UCUY1pzGlosJcOY_7prcQRtA/videos')}
+                    buttonColor='bg-secondary'
+                    iconType='ionicon'
+                    iconName='heart'
                 />
-                <CustomButton 
-                    title='Login'
-                    containerStyles='w-4/5 mt-24'
-                    handlePress={() => router.push('home/login')}
+                <HomeButtons
+                    title='Watch Live'
+                    handlePress={() => router.push('https://www.youtube.com/channel/UCUY1pzGlosJcOY_7prcQRtA/videos')}
+                    buttonColor='bg-blue-600'
+                    iconType='ionicon'
+                    iconName='heart'
                 />
-                <Text className='font-interregular' >Login to use more features</Text>
             </View>					
         </>
 	)

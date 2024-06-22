@@ -1,9 +1,11 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Stack } from 'expo-router';
+import Header from '../../../components/Header';
 
 export default function HomeLayout() {
 	return (
+	<>
 		<Stack>
 			<Stack.Screen 
 				name='index'
@@ -17,14 +19,7 @@ export default function HomeLayout() {
 				name='games'
 				options={{ headerShown: false }}
 			/>
-			<Stack.Screen 
-				name='scores'
-				options={{ headerShown: false }}
-			/>
-			<Stack.Screen 
-				name='login'
-				options={{ headerShown: false }}
-			/>
 		</Stack>
+	</>
 	);
 };

@@ -6,10 +6,6 @@ const Home = () => {
 
 	return (
 		<View className='bg-white h-full'>
-			<Header 
-				title='Home'
-				backButtonHidden='hidden'
-			/>
 			<HomeScreen />
 		</View>
 	);

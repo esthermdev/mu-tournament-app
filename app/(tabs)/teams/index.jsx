@@ -7,10 +7,6 @@ const Teams	= () => {
 	
 	return (
 		<View className='bg-white h-full'>
-			<Header 
-				title='Teams'
-				backButtonStyle='hidden' 
-			/>
 			<TeamsDirectoryScreen />
 		</View>
 	);

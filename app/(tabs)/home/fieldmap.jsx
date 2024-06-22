@@ -6,11 +6,6 @@ import { router } from 'expo-router';
 const FieldMap = () => {
     return (
         <>
-            <Header 
-                title='Field Map'
-                handlePress={() => router.back()}
-                backTitle='Home'
-            />
             <ScrollView 
                 contentContainerStyle={styles.container}
                 maximumZoomScale={2}

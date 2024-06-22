@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const { isLoggedIn, role } = useSelector((state) => state.auth);
+  const { isLoggedIn, isAdmin } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
-  const login = (userRole) => {
-    dispatch(login(userRole));
+  const login = (user) => {
+    dispatch(login(user));
   };
 
   const logout = () => {
@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, role, login, logout }}>
+    <AuthContext.Provider value={{ isLoggedIn, isAdmin, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
