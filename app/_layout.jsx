@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { store } from '../redux/store';
-import { SplashScreen, Stack, router } from 'expo-router';
-import Header from '../components/Header';
+import { SplashScreen } from 'expo-router';
 import { useFonts } from 'expo-font';
 import { Drawer } from 'expo-router/drawer';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -13,15 +12,6 @@ SplashScreen.preventAutoHideAsync();
 const RootLayout = () => {
 	
 	const [fontsLoaded, error] = useFonts({
-		"Inter-Thin": require("../assets/fonts/Inter-Thin.ttf"),
-		"Inter-ExtraLight": require("../assets/fonts/Inter-ExtraLight.ttf"),
-		"Inter-Light": require("../assets/fonts/Inter-Light.ttf"),
-		"Inter-Regular": require("../assets/fonts/Inter-Regular.ttf"),
-		"Inter-Medium": require("../assets/fonts/Inter-Medium.ttf"),
-		"Inter-SemiBold": require("../assets/fonts/Inter-SemiBold.ttf"),
-		"Inter-Bold": require("../assets/fonts/Inter-Bold.ttf"),
-		"Inter-ExtraBold": require("../assets/fonts/Inter-ExtraBold.ttf"),
-		"Inter-Black": require("../assets/fonts/Inter-Black.ttf"),
 		"Outfit-Black": require("../assets/fonts/Outfit-Black.ttf"),
 		"Outfit-Bold": require("../assets/fonts/Outfit-Bold.ttf"),
 		"Outfit-ExtraBold": require("../assets/fonts/Outfit-ExtraBold.ttf"),
@@ -30,7 +20,7 @@ const RootLayout = () => {
 		"Outfit-Medium": require("../assets/fonts/Outfit-Medium.ttf"),
 		"Outfit-Regular": require ("../assets/fonts/Outfit-Regular.ttf"),
 		"Outfit-SemiBold": require("../assets/fonts/Outfit-SemiBold.ttf"),
-		"Outfit-Thin": require("../assets/fonts/Outfit-Thin.ttf")
+		"Outfit-Thin": require("../assets/fonts/Outfit-Thin.ttf"),
 	});
   
 	useEffect(() => {

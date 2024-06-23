@@ -1,7 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import { Stack } from 'expo-router';
-import Header from '../../../components/Header';
 
 export default function HomeLayout() {
 	return (

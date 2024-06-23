@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { router } from 'expo-router';
+import { StyleSheet } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Round1Screen from './rounds/Round1Screen';
 import Round2Screen from './rounds/Round2Screen';
